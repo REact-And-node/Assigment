@@ -23,7 +23,7 @@
 5. **Changing Issue Status:**
    - Defines a route `/change-status` for changing the status of a Jira issue.
    - Fetches available transitions for the issue from the Jira API.
-   - Identifies the "Close" transition and transitions the issue to that status.
+   - Identifies the "open or to do " transition and transitions the issue to that status to "done".
    - Adds a comment to the issue indicating the status change.
 
 6. **Automatically Changing Issue Status:**
