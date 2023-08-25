@@ -33,3 +33,41 @@
 7. **Server Start:**
    - Starts the Express.js server, which listens on the specified port.
    - Outputs a message indicating that the server is running.
+Certainly, let's walk through the process of how this `TableComponent` works step by step:
+
+TASK-3 AND TASK-4
+
+1. **Component Initialization:**
+   - The component is initialized, and the state variables `data` and `data1` are set using the `useState` hook.
+   - Initially, `data` is an empty array (`[]`) and `data1` is `false`.
+
+2. **Initial Rendering:**
+   - The component renders with an empty table and a "RE-FETCH" button.
+
+3. **Button Click (Data Fetch Trigger):**
+   - When the "RE-FETCH" button is clicked, the `onClick` handler function is executed.
+   - This function uses the `setData1` function with the current value of `data1` to toggle it (from `false` to `true` or vice versa).
+
+4. **`useEffect` Execution:**
+   - The `useEffect` hook is triggered because the dependency `data1` has changed.
+   - The `fetchData` function is called.
+
+5. **Data Fetching (`fetchData` Function):**
+   - If `data1` is `true`, the function proceeds to fetch data.
+   - An HTTP request is made to the '/getAllIssues1' endpoint using the `http.get` method.
+   - The response, which contains issue data, is stored in the `response2` variable.
+
+6. **Data Display:**
+   - The fetched data is iterated over using the `map` function.
+   - For each issue object in the `data` array, a row is generated in the table.
+   - Each row displays properties of the issue, such as ID, key, summary, reporter's email address, description, and status.
+
+7. **Key Attribute and Reconciliation:**
+   - The `key` attribute is set to `item.id` for each row. This helps React efficiently update and re-render components.
+   - When new data is fetched, React uses the `key` attribute to determine which rows have changed, minimizing re-renders and improving performance.
+
+8. **Button Click (Toggle):**
+   - Clicking the "RE-FETCH" button again toggles the value of `data1` once more, triggering another data fetch cycle if it becomes `true`.
+
+9. **Error Handling:**
+   - If any errors occur during the data fetching process, they are caught in the `catch` block, and an error message is logged to the console.
