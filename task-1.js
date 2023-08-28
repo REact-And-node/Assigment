@@ -27,24 +27,10 @@ const auth = {
 const uri = 'mongodb+srv://mdsheikh6234:Nafish%4014@cluster0.fko8vta.mongodb.net/';
 
 const client = new MongoClient(uri);
-const issueKey = 'TEST1-7';
+const issueKey = 'TEST1-15';
 const transitionToCloseId =11;
-connectToDB()
-
-async function  connectToDB(){
-  try {
-    await client.connect();
-    console.log('Connected to MongoDB!');
 
 
-  } catch (err) {
-    console.error(err);
-  }
-}
-Create an issue
-
-
-Get an issue by its key
 app.post('/create-issue', async (req, res) => {
   try {
     const response = await axios.post(
@@ -57,7 +43,7 @@ app.post('/create-issue', async (req, res) => {
           summary: 'Issue created via Node.js data in mongodb ',
           description: 'This issue was created using Node.js and Jira REST API in mongodb',
           issuetype: {
-            name: 'Story' // Change the issue type as needed
+            name: 'Bug' // Change the issue type as needed
           }
         }
       },
@@ -68,41 +54,37 @@ app.post('/create-issue', async (req, res) => {
 
     console.log('Issue created:', response.data.key);
     res.json({ message: 'Issue created successfully', key: response.data.key });
+    getAllIssues()
   } catch (error) {
     console.error('Error creating issue:', error.response.data);
     res.status(500).json({ error: 'An error occurred while creating the issue.' });
   }
 });
 
+
 app.get('/getAllIssues', async (req, res) => {
-  try {
+
+ 
     const response = await axios.get(
       `${jiraUrl}/search?jql=`,
       {
         auth
       }
     ); 
-       res.send(response.data.issues)
+       
     const collection = client.db('whatsapp').collection('ASSIGMENT-TASK1')
-    const result = await collection.deleteMany({})
+   
     const documents = await collection.insertMany(response.data.issues)
     console.log("sldc",documents)
 
-  } catch (error) {
-    res.status(500).json(error.response.data);
-  }
-});
-app.get('/getAllIssues1', async (req, res) => {
+  
 
-    const collection = client.db('whatsapp').collection('ASSIGMENT-TASK1')
-    const result = await collection.find().toArray()
-   res.send(result)
 });
 
 
 
 app.post('/change-status', async (req, res) => {
-  const issueKey = 'TEST1-7';
+  const issueKey = 'TEST1-40';
   const commentText = "Issue status changed to Close and comment added successfully!";
 
   try {
@@ -182,4 +164,26 @@ changeStatus();
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+});
+async function getAllIssues() {
+  
+    const response = await axios.get(
+      `${jiraUrl}/search?jql=`,
+      {
+        auth
+      }
+    ); 
+       
+    const collection = client.db('whatsapp').collection('ASSIGMENT-TASK1')
+    const result = await collection.deleteMany({})
+    const documents = await collection.insertMany(response.data.issues)
+    console.log("sldc",documents)
+
+  
+}
+app.get('/getAllIssues1', async (req, res) => {
+  getAllIssues()
+    const collection = client.db('whatsapp').collection('ASSIGMENT-TASK1')
+    const result = await collection.find().toArray()
+   res.send(result)
 });
