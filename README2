@@ -1,0 +1,79 @@
+
+app.get("/getAllIssues", async (req, res) => {
+  try {
+    const pageSize = 20;
+    const page = parseInt(req.query.page) || 1;
+    const startAt = (page - 1) * pageSize;
+    const collection = client.db("whatsapp").collection("ASSIGMENT-TASK1");
+
+
+1. The code defines a route handler for an HTTP GET request at the endpoint `/getAllIssues`.
+
+2. Inside the route handler, it attempts to retrieve a list of issues from an external source (presumably a Jira instance) using pagination. It specifies that each page should contain 20 issues.
+
+3. The code checks if the request query parameter `page` is provided. If it's provided, it's parsed as an integer; otherwise, the default value is set to 1.
+
+4. The `startAt` value is calculated to determine the starting index for the issues on the current page.
+
+5. The MongoDB collection is obtained using the `client` object. It connects to the "whatsapp" database and the "ASSIGMENT-TASK1" collection.
+
+
+    while (true) {
+      const response = await axios.get(
+        `${jiraUrl}/search?jql=&startAt=${startAt}&maxResults=${pageSize}`,
+        {
+          auth,
+        }
+      );
+      res.send(response);
+
+
+6. Inside a loop, an HTTP GET request is made using the `axios` library to the specified `jiraUrl`. The query includes the `startAt` and `pageSize` parameters to paginate through the results.
+
+7. The response from the Jira API is stored in the `response` variable.
+
+8. The response is immediately sent back to the client using `res.send(response)`. This might lead to issues, as sending a response within a loop could result in multiple responses being sent, depending on the number of pages fetched.
+
+```javascript
+      if (response.data.issues.length === 0) {
+        break; // No more issues to retrieve
+      }
+      for (const issue of response.data.issues) {
+        const { id } = issue;
+        const existingDocument = await collection.findOne({ id });
+        if (existingDocument) {
+          await collection.updateOne({ id }, { $set: issue });
+          // console.log(`Updated document with ID: ${id}`);
+        } else {
+          await collection.insertOne(issue);
+          console.log(`Inserted new document with ID: ${id}`);
+        }
+      }
+    }
+    console.log("All documents updated/inserted");
+  } catch (error) {
+    console.error("Error:", error.message);
+  } finally {
+    client.close();
+  }
+});
+```
+
+9. The code checks if the `response` contains any issues. If the length of the `issues` array is 0, it means there are no more issues to retrieve, and the loop is exited using `break`.
+
+10. For each issue in the `response.data.issues` array, the code checks if a document with the same `id` already exists in the MongoDB collection.
+
+11. If an existing document is found, it updates the document using `collection.updateOne()` with the new issue data.
+
+12. If no existing document is found, a new document is inserted into the collection using `collection.insertOne()`.
+
+13. Logging is provided to the console to track updates and insertions.
+
+14. After processing all issues from the current response page, the loop iterates again to fetch the next page of issues.
+
+15. After all issues have been retrieved and processed, a final message is logged indicating that all documents have been updated or inserted.
+
+16. In case of an error during the process, an error message is logged.
+
+17. The `client` connection to the MongoDB is closed in the `finally` block to ensure proper cleanup.
+
