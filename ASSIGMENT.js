@@ -196,48 +196,7 @@ changeStatus();
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-async function getAllIssues() {
-  try {
-    const pageSize = 50;
-    const page = parseInt(req.query.page) || 1;
-    const startAt = (page - 1) * pageSize;
 
-    const collection = client.db("whatsapp").collection("ASSIGMENT-TASK1");
-
-    while (true) {
-      const response = await axios.get(
-        `${jiraUrl}/search?jql=&startAt=${startAt}&maxResults=${pageSize}`,
-        {
-          auth,
-        }
-      );
-      res.send(response.data.issues);
-      if (response.data.issues.length === 0) {
-        break;
-      }
-
-      for (const issue of response.data.issues) {
-        const { id } = issue;
-
-        const existingDocument = await collection.findOne({ id });
-
-        if (existingDocument) {
-          await collection.updateOne({ id }, { $set: issue });
-          console.log(`Updated document with ID: ${id}`);
-        } else {
-          await collection.insertOne(issue);
-          console.log(`Inserted new document with ID: ${id}`);
-        }
-      }
-    }
-
-    console.log("All documents updated/inserted");
-  } catch (error) {
-    console.error("Error:", error.message);
-  } finally {
-    client.close();
-  }
-}
 app.get("/getAllIssuesfromdatabase", async (req, res) => {
   try {
     const pageSize = 10;
