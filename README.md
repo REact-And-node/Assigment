@@ -77,3 +77,4 @@ storeIssues-In-Database-from-jira:https://github.com/REact-And-node/Assigment/as
 change-status:https://github.com/REact-And-node/Assigment/assets/122859645/2cef021f-944f-4ddd-8f05-4244cb394ced
 getAllIssuesfromdatabase:https://github.com/REact-And-node/Assigment/assets/122859645/af31d8a4-63a0-4d05-acd3-66a219c1447b
 
+![image](https://github.com/REact-And-node/Assigment/assets/122859645/bd55f8bf-bd90-4808-ab55-a78b2786fff7)
