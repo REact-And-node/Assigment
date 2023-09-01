@@ -1,3 +1,8 @@
+
+
+
+
+
 1. Setting Up the Server:
    - Creates an Express.js app.
    - Configures CORS headers to allow cross-origin requests.
@@ -66,8 +71,9 @@ TASK-3 AND TASK-4
    - The `key` attribute is set to `item.id` for each row. This helps React efficiently update and re-render components.
    - When new data is fetched, React uses the `key` attribute to determine which rows have changed, minimizing re-renders and improving performance.
 
-8. **Button Click (Toggle):**
-   - Clicking the "RE-FETCH" button again toggles the value of `data1` once more, triggering another data fetch cycle if it becomes `true`.
 
-9. **Error Handling:**
-   - If any errors occur during the data fetching process, they are caught in the `catch` block, and an error message is logged to the console.
+GETALL ISSUE FROM JIRA-https://github.com/REact-And-node/Assigment/assets/122859645/9d7044f3-4d7c-41e1-9caa-f5226e8dda74
+storeIssues-In-Database-from-jira:https://github.com/REact-And-node/Assigment/assets/122859645/241a6e46-5df5-4527-bf27-535ddbdb445e
+change-status:https://github.com/REact-And-node/Assigment/assets/122859645/2cef021f-944f-4ddd-8f05-4244cb394ced
+getAllIssuesfromdatabase:https://github.com/REact-And-node/Assigment/assets/122859645/af31d8a4-63a0-4d05-acd3-66a219c1447b
+
