@@ -20,8 +20,9 @@
 
 4. **Server Setup:**
    - You start the Express server and listen on the specified port.
+   - 
 IMAGE OF CODE
-GETALL ISSUE FROM JIRA-https://github.com/REact-And-node/Assigment/assets/122859645/9d7044f3-4d7c-41e1-9caa-f5226e8dda74 
+GETALL ISSUE FROM JIRA-  https://github.com/REact-And-node/Assigment/assets/122859645/9d7044f3-4d7c-41e1-9caa-f5226e8dda74 
 storeIssues-In-Database-from-jira:https://github.com/REact-And-node/Assigment/assets/122859645/241a6e46-5df5-4527-bf27-535ddbdb445e 
 change-status:https://github.com/REact-And-node/Assigment/assets/122859645/2cef021f-944f-4ddd-8f05-4244cb394ced 
 getAllIssuesfromdatabase:https://github.com/REact-And-node/Assigment/assets/122859645/af31d8a4-63a0-4d05-acd3-66a219c1447bng error handling and security.
