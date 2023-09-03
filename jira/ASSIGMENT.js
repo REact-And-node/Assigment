@@ -118,7 +118,7 @@ app.get("/change-status", async (req, res) => {
         await collection.updateOne({ id }, { $set: issue });
         console.log(`update new document with ID: ${id}`);
       } else {
-        console.log(`Inserted new document with ID: ${id}`);
+        console.log(`NO DOCUMENT to UPDATE `);
       }
     }
     res.send("Issue status changed to Close and comment added successfully!");
