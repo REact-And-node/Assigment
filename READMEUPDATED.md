@@ -1,5 +1,15 @@
+HOSTED APP ON RENDER.COM AND FIREBASE 
+**SERVER.JS** HOSTED ON render-https://jirasoftware.onrender.com
+methods
+1-Get/getAllIssuesfromdatabase?page=1
+2-Get/storeIssues-In-Database-from-jira
+3-Get/change-status?issueKey="TEST1-53"  or use any other quary
+4-Get/getAllIssuesfrom-jira?page=1
+**APP HOSTED ON FIREBASE**  = https://jirasoftware-e7a80.web.app/
+
+
+**HOW TO SET Setting Up PROJECT** 
  **Setting Up PROJECT**
- 
   1 **SERVER.JS**-a Node.js Express application that interacts with the Jira API and a MongoDB database. This application has several endpoints for 
      handling Jira issues and storing them in a database  , RUN ON TERMINAL=node server.js 
      
