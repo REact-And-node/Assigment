@@ -37,9 +37,6 @@
 5. **table.css** -imported in TableComponent
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Update the ticket carefully and systemically.
-
-This code appears to be part of a Node.js server application that interacts with the Jira REST API, changes the status of a Jira issue, adds a comment to it, and updates a database with information about the issue. It provides error handling to ensure robustness.
 
 
    -----------------------------------------------------------------------------------------------------------------------------------------------------
