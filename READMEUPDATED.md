@@ -14,11 +14,11 @@
 4. Inside the `get` function, you use Axios to make the GET request to the complete URL.
 5. You export this `get` function as an object, making it available for use in other parts of your application.
    
-5.**table.css** -imported in TableComponent
+5. **table.css** -imported in TableComponent
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Update the ticket carefully and systemically.
-Sure, I'd be happy to explain each part of the code you provided:
+
 
 1. **Route Definition**: This code defines an Express.js route handler for a `GET` request to the path "/change-status".
 
