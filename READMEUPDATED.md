@@ -3,7 +3,7 @@
   1 **SERVER.JS**-a Node.js Express application that interacts with the Jira API and a MongoDB database. This application has several endpoints for 
      handling Jira issues and storing them in a database  , RUN ON TERMINAL=node server.js 
      
-  2.**maincomponent.jsx**-**put in index.js in vs code, maincomponent all component is connected /imported in it** ,Make sure you have the necessary CSS styles and the `TableComponent` component correctly imported  and implemented in your project for this code to work as expected
+  2.**maincomponent.jsx**-**put in index.js in vs code,  all component is connected /imported in it** ,Make sure you have the necessary CSS styles and the `TableComponent` component correctly imported  and implemented in your project for this code to work as expected
   
 3.**TableComponent.jsx**-import in maincomponent
 
