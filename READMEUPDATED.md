@@ -71,7 +71,8 @@ GETALL ISSUE FROM JIRA-  https://github.com/REact-And-node/Assigment/assets/1228
 
 storeIssues-In-Database-from-jira:https://github.com/REact-And-node/Assigment/assets/122859645/241a6e46-5df5-4527-bf27-535ddbdb445e 
 
-change-status:https://github.com/REact-And-node/Assigment/assets/122859645/2cef021f-944f-4ddd-8f05-4244cb394ced 
+change-status:https://github.com/REact-And-node/Assigment/assets/122859645/a69f0253-cbea-4840-8694-fd0a306a6ea2
+
 
 getAllIssuesfromdatabase:https://github.com/REact-And-node/Assigment/assets/122859645/af31d8a4-63a0-4d05-acd3-66a219c1447b
 
